@@ -22,6 +22,8 @@ services:
         hard: 65536
     cap_add:
       - ALL
+    volumes:
+      - ./data-elasticsearch:/usr/share/elasticsearch/data
     ports:
       - 9200:9200
       - 9300:9300
@@ -31,5 +33,7 @@ services:
     container_name: kibana
     environment:
       - "I18N_LOCALE=ja-JP"
+    volumes:
+      - ./data-kibana:/usr/share/kibana/data
     ports:
       - 5601:5601
